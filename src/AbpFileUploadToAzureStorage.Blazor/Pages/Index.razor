@@ -1,0 +1,32 @@
+﻿@page "/"
+@using Volo.Abp.MultiTenancy
+@inherits AbpFileUploadToAzureStorageComponentBase
+@inject ICurrentTenant CurrentTenant
+@inject AuthenticationStateProvider AuthenticationStateProvider
+<div class="container">
+    <CardDeck>
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-lg-4">
+                        <div class="p-4">
+                            <h5 class="mb-3"><i class="fas fa-file-upload text-secondary d-block my-3 fa-2x"></i>Upload
+                                File
+                            </h5>
+                            <hr>
+                            <p>
+                                <InputFile OnChange="@OnInputFileChange" multiple />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-4 mb-5">
+            @foreach (var imageDataUrl in imageDataUrls)
+            {
+                <CardImage Source="@imageDataUrl" Alt="Placeholder image"></CardImage>
+            }
+        </div>
+    </CardDeck>
+</div>
