@@ -47,15 +47,13 @@ namespace AbpFileUploadToAzureStorage
         options.IsEnabled = MultiTenancyConsts.IsEnabled;
       });
 
-      ConfigureAbpBlobStoringOptions(configuration);
-
-      ConfigureAzureStorageAccountOptions(context, configuration);
-
-
-
 #if DEBUG
       context.Services.Replace(ServiceDescriptor.Singleton<IEmailSender, NullEmailSender>());
 #endif
+
+      ConfigureAzureStorageAccountOptions(context, configuration);
+      
+      ConfigureAbpBlobStoringOptions(configuration);
     }
 
     private void ConfigureAbpBlobStoringOptions(IConfiguration configuration)
