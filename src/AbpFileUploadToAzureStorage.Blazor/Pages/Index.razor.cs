@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas;
-using AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas.Dtos;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
