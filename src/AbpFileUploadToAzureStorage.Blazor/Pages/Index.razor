@@ -1,32 +1,81 @@
 ﻿@page "/"
-@using Volo.Abp.MultiTenancy
 @inherits AbpFileUploadToAzureStorageComponentBase
-@inject ICurrentTenant CurrentTenant
-@inject AuthenticationStateProvider AuthenticationStateProvider
 <div class="container">
     <CardDeck>
         <div class="card mt-4 mb-5">
             <div class="card-body">
-                <div class="row text-center">
-                    <div class="col-lg-4">
-                        <div class="p-4">
-                            <h5 class="mb-3"><i class="fas fa-file-upload text-secondary d-block my-3 fa-2x"></i>Upload
-                                File
-                            </h5>
-                            <hr>
-                            <p>
-                                <InputFile OnChange="@OnInputFileChange" multiple />
-                            </p>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="p-12">
+                        <h5><i class="fas fa-file-upload text-secondary pr-2 my-2 fa-2x"></i>Upload
+                            File to Storage
+                        </h5>
+                        <p>
+                            <InputFile OnChange="@OnInputFileChange" />
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card mt-4 mb-5">
-            @foreach (var imageDataUrl in imageDataUrls)
-            {
-                <CardImage Source="@imageDataUrl" Alt="Placeholder image"></CardImage>
-            }
+            <div class="card-body">
+                <CardImage Source="@PictureUrl" Alt="Pizza picture will be displayed here!"></CardImage>
+            </div>
+        </div>
+    </CardDeck>
+    <CardDeck>
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+                <div class="col-lg-12">
+                    <div class="p-12">
+                        <h5><i class="fas fa-file-download text-secondary pr-2 my-2 fa-2x"></i>Download
+                            File from Storage
+                        </h5>
+                        <p>
+                            <EditForm Model="SavedPizzaPictureDto" OnValidSubmit="@GetPizzaFromStorage">
+                                <div class="form-group">
+                                    <label for="StorageFileName">StorageFileName uploaded file:</label>
+                                    <div>
+                                        <InputText id="StorageFileName" class="form-control"
+                                            @bind-Value="@SavedPizzaPictureDto.StorageFileName" />
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Download File </button>
+                                <button class="btn btn-success" type="button" @onclick="() => GetStorageUrl()">Get StorageUrl </button>
+                                <button class="btn btn-danger" type="button" @onclick="DeletePicture">Delete File</button>
+                            </EditForm>
+                            <hr>
+                            
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+                <CardImage Source="@PictureFromStorageUrl" Alt="Pizza picture from storage will be displayed here!"></CardImage>
+            </div>
+        </div>
+    </CardDeck>
+    <CardDeck>
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+                <div class="col-lg-12">
+                    <div class="p-12">
+                        <h5><i class="fas fa-file-download text-secondary pr-2 my-2 fa-2x"></i>Pizza Served by Azure Storage Emulator
+                        </h5>
+                        <p>
+                            <a href="@PizzaPictureStorageUrl" target="_blank">@PizzaPictureStorageUrl</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+                <CardImage Source="@PizzaPictureStorageUrl" Alt="Pizza picture served by Azure Storage will be displayed here!"></CardImage>
+            </div>
         </div>
     </CardDeck>
 </div>
+
