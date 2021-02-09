@@ -1,6 +1,4 @@
-using System;
 using System.Threading.Tasks;
-using AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas.Dtos;
 using Volo.Abp.Application.Services;
 
 namespace AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas

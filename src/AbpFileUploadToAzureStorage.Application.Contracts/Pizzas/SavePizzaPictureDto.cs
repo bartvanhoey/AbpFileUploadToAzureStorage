@@ -1,4 +1,4 @@
-namespace AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas.Dtos
+namespace AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas
 {
   public class SavePizzaPictureDto
   {

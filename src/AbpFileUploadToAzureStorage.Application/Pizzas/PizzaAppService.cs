@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas;
-using AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas.Dtos;
 using AbpFileUploadToAzureStorage.Domain.AzureStorage.Pizzas;
 using Volo.Abp.Application.Services;
 
