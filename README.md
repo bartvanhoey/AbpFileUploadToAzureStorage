@@ -112,9 +112,12 @@ namespace AbpFileUploadToAzureStorage
 
 The connection string above serves as connection to Azurite (local Azure Storage emulator). You will need to replace the connection string when you want to upload files to Azure Storage in the cloud.
 
-## Create a ConfigureAzureStorageAccountOptions method in the AbpFileUploadToAzureStorageDomainModule of the Domain project
+## Create a ConfigureAzureStorageAccountOptions method in the AbpFileUploadToAzureStorageDomainModule class of the Domain project
 
 ```csharp
+    // Comment out and place in using section page
+    // using Microsoft.Extensions.Configuration;
+    
     private void ConfigureAzureStorageAccountOptions(ServiceConfigurationContext context, IConfiguration configuration)
     {
       Configure<AzureStorageAccountOptions>(options =>
@@ -138,9 +141,8 @@ The connection string above serves as connection to Azurite (local Azure Storage
       var configuration = context.Services.GetConfiguration();
       ConfigureAzureStorageAccountOptions(context, configuration);
     }
-
 ```
-
+dotnetd
 ## Add a PizzaPictureContainer class in the Domain project
 
 * Add a **PizzaPictureContainer.cs** file to the **AzureStorage/Pizzas** folder of the **Domain** project.
@@ -161,6 +163,11 @@ namespace AbpFileUploadToAzureStorage.Domain.AzureStorage
 ## Create a ConfigureAbpBlobStoringOptions method in the AbpFileUploadToAzureStorageDomainModule of the Domain project
 
 ```csharp
+    // Comment out and place in using section page
+    // using Volo.Abp.BlobStoring;
+    // using AbpFileUploadToAzureStorage.Domain.AzureStorage;
+
+
     private void ConfigureAbpBlobStoringOptions(IConfiguration configuration)
     {
       Configure<AbpBlobStoringOptions>(options =>
@@ -237,9 +244,6 @@ namespace AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas
   public interface IPizzaAppService : IApplicationService
   {
     Task<SavedPizzaPictureDto> SavePizzaPicture(SavePizzaPictureDto input);
-    Task<PizzaPictureDto> GetPizzaPicture(GetPizzaPictureDto input);
-    Task<bool> DeletePizzaPicture(DeletePizzaPictureDto input);
-    Task<string> GetPizzaPictureStorageUrl(string fileName);
   }
 }
 ```
@@ -294,7 +298,7 @@ namespace AbpFileUploadToAzureStorage.Application.AzureStorage.Pizzas
 }
 ```
 
-## Index.razor
+## Replace content of Index.razor with code below
 
 ```html
 @page "/"
@@ -306,7 +310,7 @@ namespace AbpFileUploadToAzureStorage.Application.AzureStorage.Pizzas
                 <div class="col-lg-12">
                     <div class="p-12">
                         <h5><i class="fas fa-file-upload text-secondary pr-2 my-2 fa-2x"></i>Upload
-                            File to Storage
+                            File to Azure Storage
                         </h5>
                         <p>
                             <InputFile OnChange="@OnInputFileChange" />
@@ -324,7 +328,7 @@ namespace AbpFileUploadToAzureStorage.Application.AzureStorage.Pizzas
 </div>
 ```
 
-## Index.razor.cs
+## Replace content of Index.razor.cs with code below
 
 ```csharp
 using System;
