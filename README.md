@@ -8,9 +8,9 @@ In this article you will learn how to setup and use the **Blob Storing Azure Pro
 
 To keep this article as simple as possible, I will only show the steps to upload a file to Azure Storage. In the accompanying source code you can find the code you need to Download or Delete a file from Azure Storage.
 
-I made use of Azurite (an emulator for local Storage Development) so you don't actually need to set up an Azure Storage account in Azure to follow along. You will need to replace the connection string in the appsettings.json file in het HttpApi.Host project if you want to upload/download files to a real Azure Storage account in Azure.
+I made use of **Azurite** (an emulator for local Storage Development), so you don't need to set up an Azure Storage account in Azure to follow along. If you want to upload/download files to a real Azure Storage account in Azure,  you need to replace the connection string in the AzureStorageAccountSettings section of the appsettings.json file in the HttpApi.Host project.
 
-### Source Code
+### Source code
 
 The Source code of the completed application is [available on GitHub](https://github.com/bartvanhoey/AbpFileUploadToAzureStorage).
 
@@ -20,6 +20,7 @@ The following tools are needed to be able to run the solution and follow along.
 
 * .NET 5.0 SDK
 * VsCode, Visual Studio 2019 16.8.0+ or another compatible IDE
+* Node.js (version 8.0 or later)
 * Microsoft Azure Storage Explorer. Download it [here](https://azure.microsoft.com/en-us/features/storage-explorer/)
 * Azurite (Emulator for local Azure Storage development). Read more about it [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite).
 
@@ -49,7 +50,7 @@ Alternatively you could also run Azurite as a docker container (see [docs](https
 * Select **Attach to a local emulator** and click **Next**, keep default settings, click **Connect**.
 * Do not forget to start your emulator, Storage Explorer will not start it for you.
 
-## Create and Run Application
+## Create and run Application
 
 ### Creating a new ABP Framework Application
 
@@ -368,7 +369,7 @@ namespace AbpFileUploadToAzureStorage.Blazor.Pages
 
 ```
 
-## Test Uploading a picture to Azure Storage
+## Test uploading a picture to Azure Storage
 
 * Start both the Blazor and the HttpApi.Host project.
 * Choose a pizza picture in the **File Upload to Azure Storage** section.
