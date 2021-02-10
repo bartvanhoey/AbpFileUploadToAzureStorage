@@ -370,6 +370,9 @@ namespace AbpFileUploadToAzureStorage.Blazor.Pages
 
 Et voilà! This is the result.
 
+![Upload file to Azure Storage](images/index.jpg)
+
+![File uploaded to  Azure Storage](images/pizza_in_azure_storage_explorer.jpg)
 
 You can now modify the login page, add your custom styles, or custom images, etc.
 
