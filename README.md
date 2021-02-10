@@ -4,13 +4,13 @@
 
 ## Introduction
 
-In this article you will learn how to setup and use the **Blob Storing Azure Provider** to **Upload/Download files to Azure Storage** in a **Blazor APB Framework** application. 
+In this article you will learn how to setup and use the **Blob Storing Azure Provider** to **Upload/Download files to Azure Storage** in a **Blazor APB Framework** application.
 
 To keep this article as simple as possible, I will only show the steps to upload a file to Azure Storage. In the accompanying source code you can find the code you need to Download or Delete a file from Azure Storage.
 
 ### Source Code
 
-Source code of the completed application is [available on GitHub](https://github.com/bartvanhoey/AbpFileUploadToAzureStorage).
+The Source code of the completed application is [available on GitHub](https://github.com/bartvanhoey/AbpFileUploadToAzureStorage).
 
 ## Requirements
 
@@ -19,7 +19,7 @@ The following tools are needed to be able to run the solution and follow along.
 * .NET 5.0 SDK
 * VsCode, Visual Studio 2019 16.8.0+ or another compatible IDE
 * Microsoft Azure Storage Explorer. Download it [here](https://azure.microsoft.com/en-us/features/storage-explorer/)
-* Azurite (Emulator for local Azure Storage Development). Read more about it [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite).
+* Azurite (Emulator for local Azure Storage development). Read more about it [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite).
 
 ## Tools needed
 
@@ -72,7 +72,7 @@ abp new AbpFileUploadToAzureStorage -o AbpFileUploadToAzureStorage -u blazor
 
 ## Development
 
-## Install Volo.Abp.BlobStoring.Azure NuGet package to Domain project
+### Install Volo.Abp.BlobStoring.Azure NuGet package to Domain project
 
 * Open a command prompt in the directory of the **Domain** project.
 * Run the command below to install **Volo.Abp.BlobStoring.Azure** NuGet package
@@ -81,7 +81,7 @@ abp new AbpFileUploadToAzureStorage -o AbpFileUploadToAzureStorage -u blazor
   abp add-package Volo.Abp.BlobStoring.Azure
 ```
 
-## Create a class AzureStorageAccountOptions to retrieve Azure Storage settings
+### Create a class AzureStorageAccountOptions to retrieve Azure Storage settings
 
 * Create an **AzureStorage** folder in the **Domain** project of your application.
 * Add a **AzureStorageAccountOptions.cs** file to the **AzureStorage** folder.
@@ -97,7 +97,7 @@ namespace AbpFileUploadToAzureStorage
 }
 ```
 
-## Add AzureStorageAccountSettings to the appsettings.json file in the HttpApi.Host project
+### Add AzureStorageAccountSettings to the appsettings.json file in the HttpApi.Host project
 
 ```json
 {
@@ -112,7 +112,7 @@ namespace AbpFileUploadToAzureStorage
 
 The connection string above serves as connection to Azurite (local Azure Storage emulator). You will need to replace the connection string when you want to upload files to Azure Storage in the cloud.
 
-## Create a ConfigureAzureStorageAccountOptions method in the AbpFileUploadToAzureStorageDomainModule class of the Domain project
+### Create a ConfigureAzureStorageAccountOptions method in the AbpFileUploadToAzureStorageDomainModule class of the Domain project
 
 ```csharp
     // Comment out and place in using section page
@@ -131,7 +131,7 @@ The connection string above serves as connection to Azurite (local Azure Storage
     }
 ```
 
-## Call the ConfigureAzureStorageAccountOptions method from the ConfigureServices method in the AbpFileUploadToAzureStorageDomainModule
+### Call the ConfigureAzureStorageAccountOptions method from the ConfigureServices method in the AbpFileUploadToAzureStorageDomainModule
 
 ```csharp
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -142,8 +142,8 @@ The connection string above serves as connection to Azurite (local Azure Storage
       ConfigureAzureStorageAccountOptions(context, configuration);
     }
 ```
-dotnetd
-## Add a PizzaPictureContainer class in the Domain project
+
+### Add a PizzaPictureContainer class in the Domain project
 
 * Add a **PizzaPictureContainer.cs** file to the **AzureStorage/Pizzas** folder of the **Domain** project.
 
@@ -160,7 +160,7 @@ namespace AbpFileUploadToAzureStorage.Domain.AzureStorage
 }
 ```
 
-## Create a ConfigureAbpBlobStoringOptions method in the AbpFileUploadToAzureStorageDomainModule of the Domain project
+### Create a ConfigureAbpBlobStoringOptions method in the AbpFileUploadToAzureStorageDomainModule of the Domain project
 
 ```csharp
     // Comment out and place in using section page
@@ -185,7 +185,7 @@ namespace AbpFileUploadToAzureStorage.Domain.AzureStorage
     }
 ```
 
-## Call the ConfigureAbpBlobStoringOptions method from the ConfigureServices method in the AbpFileUploadToAzureStorageDomainModule
+### Call the ConfigureAbpBlobStoringOptions method from the ConfigureServices method in the AbpFileUploadToAzureStorageDomainModule
 
 ```csharp
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -199,7 +199,7 @@ namespace AbpFileUploadToAzureStorage.Domain.AzureStorage
     }
 ```
 
-## Create PizzaPictureContainerManager class in folder AzureStorage/Pizzas of the Domain project
+### Create PizzaPictureContainerManager class in folder AzureStorage/Pizzas of the Domain project
 
 ```csharp
 using System;
@@ -233,7 +233,7 @@ namespace AbpFileUploadToAzureStorage.Domain.AzureStorage.Pizzas
 }
 ```
 
-## Add IPizzaAppService, SavePizzaPictureDto and SavedPizzaPictureDto to the Application.Contracts project
+### Add IPizzaAppService, SavePizzaPictureDto and SavedPizzaPictureDto to the Application.Contracts project
 
 ```csharp
 using System.Threading.Tasks;
@@ -269,7 +269,7 @@ namespace AbpFileUploadToAzureStorage.Application.Contracts.AzureStorage.Pizzas
 }
 ```
 
-## Add a PizzaAppService class in the Application project and implement IPizzaAppService interface
+### Add a PizzaAppService class in the Application project and implement IPizzaAppService interface
 
 ```csharp
 using System.Threading.Tasks;
@@ -298,7 +298,7 @@ namespace AbpFileUploadToAzureStorage.Application.AzureStorage.Pizzas
 }
 ```
 
-## Replace content of Index.razor with code below
+### Replace content of Index.razor with code below
 
 ```html
 @page "/"
@@ -328,7 +328,7 @@ namespace AbpFileUploadToAzureStorage.Application.AzureStorage.Pizzas
 </div>
 ```
 
-## Replace content of Index.razor.cs with code below
+### Replace content of Index.razor.cs with code below
 
 ```csharp
 using System;
@@ -366,17 +366,20 @@ namespace AbpFileUploadToAzureStorage.Blazor.Pages
 
 ```
 
-## Start both the Blazor and the HttpApi.Host project and test Uploading a picture to Azure Storage
+## Test Uploading a picture to Azure Storage
 
-Et voilà! This is the result.
-
+* Start both the Blazor and the HttpApi.Host project.
+* Choose a pizza picture in the **File Upload to Azure Storage** section.
+  
 ![Upload file to Azure Storage](images/index.jpg)
+
+Et voilà! As you can see in the **Azure Storage Explorer**, the pizza picture has been successfully stored in **Azure Storage**.
 
 ![File uploaded to  Azure Storage](images/pizza_in_azure_storage_explorer.jpg)
 
-You can now modify the login page, add your custom styles, or custom images, etc.
+Congratulations, you can upload a file to Azure Storage by now! Check out the source code of this article to see my implementation of Uploading/Deleting a file to Azure Storage.
 
-Find more about ASP.NET Core (MVC/Razor Pages) User Interface Customization Guide [here](https://docs.abp.io/en/abp/4.1/UI/AspNetCore/Customization-User-Interface).
+Find more info about **Blob Storing** [here](https://docs.abp.io/en/abp/latest/Blob-Storing) and **BLOB Storing Azure Provider** [here](https://docs.abp.io/en/abp/latest/Blob-Storing-Azure).
 
 Get the [source code](https://github.com/bartvanhoey/AbpFileUploadToAzureStorage) on GitHub.
 
