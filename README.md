@@ -60,7 +60,7 @@ dotnet tool install -g Volo.Abp.Cli || dotnet tool update -g Volo.Abp.Cli
 * Use the following ABP CLI command to create a new Blazor ABP application:
 
 ```bash
-abp new AbpFileUploadToAzureStorage -u blazor
+abp new AbpFileUploadToAzureStorage -o AbpFileUploadToAzureStorage -u blazor
 ```
 
 ### Open & Run the Application
