@@ -40,7 +40,7 @@ The following tools are needed to be able to run the solution and follow along.
 
 Alternatively you could also run Azurite as a docker container (see [docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite) how to proceed).
 
-### Install Microsoft Azure Storage Explorer
+### Install and configure Microsoft Azure Storage Explorer
 
 * Download and install [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/). A free tool to easily manage your Azure cloud storage resources anywhere, from Windows, macOS, or Linux.
 * Click on the **Open Connect Dialog** icon in the left menu.
