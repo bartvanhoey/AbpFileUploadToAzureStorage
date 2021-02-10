@@ -19,13 +19,13 @@ The following tools are needed to be able to run the solution and follow along.
 * .NET 5.0 SDK
 * VsCode, Visual Studio 2019 16.8.0+ or another compatible IDE
 * Microsoft Azure Storage Explorer. Download it [here](https://azure.microsoft.com/en-us/features/storage-explorer/)
-* Azurite (Emulator for local Azure Storage Development) Read more about it [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite).
+* Azurite (Emulator for local Azure Storage Development). Read more about it [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite).
 
 ## Tools needed
 
 ### Install and run Azurite
 
-* Open a command prompt and install **Azurite** by using NPM .
+* Open a command prompt and install **Azurite** by using NPM.
 
 ```bash
   npm install -g azurite
