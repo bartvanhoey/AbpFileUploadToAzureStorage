@@ -31,6 +31,7 @@ The following tools are needed to be able to run the solution and follow along.
   npm install -g azurite
 ```
 
+* Create an azurite folder in your c-drive (c:\azurite).
 * start **Azurite emulator** from a command prompt with admin privileges.
 
 ```bash
