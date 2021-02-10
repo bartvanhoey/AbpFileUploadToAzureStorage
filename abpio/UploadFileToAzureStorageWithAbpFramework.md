@@ -1,7 +1,5 @@
 ## Upload Files to Azure Storage
 
-![.NET](https://github.com/bartvanhoey/AbpFileUploadToAzureStorage/workflows/.NET/badge.svg)
-
 ## Introduction
 
 In this article you will learn how to setup and use the **Blob Storing Azure Provider** to **Upload/Download files to Azure Storage** in a **Blazor APB Framework** application.
@@ -373,11 +371,11 @@ namespace AbpFileUploadToAzureStorage.Blazor.Pages
 * Start both the Blazor and the HttpApi.Host project.
 * Choose a pizza picture in the **File Upload to Azure Storage** section.
   
-![Upload file to Azure Storage](images/index.jpg)
+![Upload file to Azure Storage](../images/index.jpg)
 
 Et voilà! As you can see in the **Azure Storage Explorer**, the pizza picture has been successfully stored in **Azure Storage**.
 
-![File uploaded to  Azure Storage](images/pizza_in_azure_storage_explorer.jpg)
+![File uploaded to  Azure Storage](../images/pizza_in_azure_storage_explorer.jpg)
 
 Congratulations, you can upload a file to Azure Storage by now! Check out the source code of this article to see my implementation of Uploading/Deleting a file to Azure Storage.
 
