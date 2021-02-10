@@ -379,7 +379,7 @@ Et voilà! As you can see in the **Azure Storage Explorer**, the pizza picture h
 
 Congratulations, you can upload a file to Azure Storage by now! Check out the source code of this article to see my implementation of Uploading/Deleting a file to Azure Storage.
 
-Find more info about **Blob Storing** [here](https://docs.abp.io/en/abp/latest/Blob-Storing) and **BLOB Storing Azure Provider** [here](https://docs.abp.io/en/abp/latest/Blob-Storing-Azure).
+Find more information about the **ABP Framework Blob Storing System** [here](https://docs.abp.io/en/abp/latest/Blob-Storing) and **BLOB Storing Azure Provider** [here](https://docs.abp.io/en/abp/latest/Blob-Storing-Azure).
 
 Get the [source code](https://github.com/bartvanhoey/AbpFileUploadToAzureStorage) on GitHub.
 
